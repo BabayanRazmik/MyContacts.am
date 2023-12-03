@@ -23,6 +23,18 @@ namespace MyContacts.am.Controllers
             return View();
         }
 
+        #region One Contact
+
+        [HttpGet]
+        public async Task<IActionResult> OneContacts(int Id)
+        {
+            var contacts = await _db.Users.Where(u => u.Id == Id).FirstOrDefaultAsync();
+
+            return View(contacts);
+        }
+
+        #endregion
+
         #region All Contacts
 
         [HttpGet]

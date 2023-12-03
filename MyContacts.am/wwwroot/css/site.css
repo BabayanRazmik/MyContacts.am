@@ -58,3 +58,7 @@ body {
     .btn-del:hover {
         background-color: #c90404;
     }
+
+.btn-ok {
+    background-color: green;
+}

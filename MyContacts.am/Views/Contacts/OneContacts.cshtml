@@ -1,0 +1,17 @@
+﻿@model MyContacts.am.Models.User
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Model.Email</h6>
+        <p class="card-text">@Model.Phone</p>
+        <p class="card-text">@Model.Address</p>
+        <a asp-controller="Contacts" asp-route-Id="@Model.Id" asp-action="EditContacts" class="btn btn-fill btn-primary">
+            Edit
+        </a>
+        <form method="post" asp-controller="Contacts" asp-action="Deletecontacts">
+            <input asp-for="@Model.Id" name="contactId" type="hidden" />
+            <button type="submit" class="btn-fill btn-del">Delete</button>
+        </form>
+    </div>
+</div>
