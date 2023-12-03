@@ -1,0 +1,53 @@
+﻿@model List<MyContacts.am.ModelsView.UserModel>
+
+<a asp-controller="Contacts"  asp-action="AddContacts"><button class="btn btn-primary">Add Contact</button></a><hr/>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered table-striped category-table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th>
+                    Address
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <input asp-for="@user.Id" type="hidden" class="input mb-0" />
+                    <td class="w-30">@user.FullName</td>
+                    <td class="w-30">@user.Email</td>
+                    <td class="w-30">@user.Phone</td>
+                    <td class="w-30">@user.Address</td>
+                    <td class="w-30">
+                        <div class="btn-group" role="group">
+                            <a asp-controller="Contacts" asp-route-Id="@user.Id" asp-action="EditContacts" class="btn btn-fill btn-primary">
+                                Edit
+                            </a>
+                            <form method="post" asp-controller="Contacts" asp-action="Deletecontacts">
+                                <input asp-for="@user.Id" name="contactId" type="hidden" />
+                                <button type="submit" class="btn-fill btn-del">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h4 class="text-danger">No Contacts</h4>
+}

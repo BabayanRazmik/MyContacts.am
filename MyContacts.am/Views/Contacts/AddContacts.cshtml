@@ -1,0 +1,32 @@
+﻿@model MyContacts.am.ModelsView.UserModel
+
+<div class="container">
+    <div class="list-card box-shadow mx-auto">
+        <form method="post" asp-controller="Contacts" asp-action="AddContacts" class="card-text">
+            <div class="row">
+                <div class="col-md-12">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <input asp-for="FullName" placeholder="First Name*" class="input mb-0" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <input asp-for="Email" placeholder="Email*" type="email" class="input mb-0" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-12 mb-4">
+                    <input asp-for="Phone" placeholder="Phone*" class="input mb-0" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <input asp-for="Address" placeholder="Address*" class="input mb-0" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
